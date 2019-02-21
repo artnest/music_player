@@ -8,7 +8,7 @@ class AlbumCover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints.tightFor(height: 320),
+      constraints: BoxConstraints.tightFor(height: 300),
       decoration: BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(
@@ -20,7 +20,7 @@ class AlbumCover extends StatelessWidget {
         ],
         shape: BoxShape.circle,
       ),
-      margin: EdgeInsets.fromLTRB(20, 20, 20, 24),
+      margin: EdgeInsets.only(top: 8, bottom: 16),
       child: ClipOval(
         child: Image(
           image: AssetImage(coverPath),

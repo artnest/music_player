@@ -15,31 +15,28 @@ class PlayingNow extends StatefulWidget {
 }
 
 class _PlayingNowState extends State<PlayingNow> {
+  var _progress = 0.0;
+  var _volume = 0.0;
+
   @override
   Widget build(BuildContext context) {
-    final maxHeight = MediaQuery.of(context).size.height;
-
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           const AlbumCover('images/madeline_juno_saturation.jpg'),
           songName(widget.song),
-          SizedBox(height: maxHeight * 0.01),
           artistName(widget.artist),
-          SizedBox(height: maxHeight * 0.03),
           songProgress(),
-          SizedBox(height: maxHeight * 0.032),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: ControlButtons(),
           ),
-          SizedBox(height: maxHeight * 0.02),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 36),
             child: volumeBar(),
           ),
-          SizedBox(height: maxHeight * 0.02),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: MoreButtons(),
@@ -65,25 +62,25 @@ class _PlayingNowState extends State<PlayingNow> {
 
   Slider songProgress() {
     return Slider(
-      value: 0.5,
+      value: _progress,
       inactiveColor: Colors.black12,
-      onChanged: (double value) {},
+      onChanged: (double value) {
+        setState(() {
+          _progress = value;
+        });
+      },
     );
-    /*return LinearProgressIndicator(
-      value: 0.5,
-      backgroundColor: Colors.black12,
-    );*/
   }
 
   Slider volumeBar() {
     return Slider(
-      value: 0.2,
+      value: _volume,
       inactiveColor: Colors.black12,
-      onChanged: (double value) {},
+      onChanged: (double value) {
+        setState(() {
+          _volume = value;
+        });
+      },
     );
-    /*return LinearProgressIndicator(
-      value: 0.2,
-      backgroundColor: Colors.black12,
-    );*/
   }
 }
