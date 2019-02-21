@@ -17,28 +17,29 @@ class PlayingNow extends StatefulWidget {
 class _PlayingNowState extends State<PlayingNow> {
   @override
   Widget build(BuildContext context) {
+    final maxHeight = MediaQuery.of(context).size.height;
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: <Widget>[
           const AlbumCover('images/madeline_juno_saturation.jpg'),
           songName(widget.song),
-          const SizedBox(height: 8),
+          SizedBox(height: maxHeight * 0.01),
           artistName(widget.artist),
-          const SizedBox(height: 48),
+          SizedBox(height: maxHeight * 0.03),
           songProgress(),
-          const SizedBox(height: 56),
+          SizedBox(height: maxHeight * 0.032),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: ControlButtons(),
           ),
-          const SizedBox(height: 36),
+          SizedBox(height: maxHeight * 0.02),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 36),
             child: volumeBar(),
-            // 2464 - 2542
           ),
-          const SizedBox(height: 36),
+          SizedBox(height: maxHeight * 0.02),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: MoreButtons(),

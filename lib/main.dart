@@ -13,10 +13,10 @@ class Player extends StatelessWidget {
         primarySwatch: Colors.pink,
       ),
       home: Scaffold(
-        /*appBar: AppBar(
+        appBar: AppBar(
           backgroundColor: Colors.white.withOpacity(0),
           elevation: 0,
-        ),*/
+        ),
         body: PlayingNow(
           song: 'Let Me Live My Life',
           artist: 'Madeline Juno',

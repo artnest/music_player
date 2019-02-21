@@ -8,6 +8,7 @@ class AlbumCover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: BoxConstraints.tightFor(height: 320),
       decoration: BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(
