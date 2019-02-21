@@ -26,16 +26,16 @@ class _PlayingNowState extends State<PlayingNow> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           const AlbumCover('images/madeline_juno_saturation.jpg'),
-          songName(widget.song),
-          artistName(widget.artist),
-          songProgress(),
+          _renderSongName(widget.song),
+          _renderArtistName(widget.artist),
+          _renderSongProgress(),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: ControlButtons(),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 36),
-            child: volumeBar(),
+            child: _renderVolumeBar(),
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
@@ -46,21 +46,21 @@ class _PlayingNowState extends State<PlayingNow> {
     );
   }
 
-  Text songName(String name) {
+  Text _renderSongName(String name) {
     return Text(
       name,
       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
     );
   }
 
-  Text artistName(String name) {
+  Text _renderArtistName(String name) {
     return Text(
       name,
       style: TextStyle(color: Colors.black38),
     );
   }
 
-  Slider songProgress() {
+  Slider _renderSongProgress() {
     return Slider(
       value: _progress,
       inactiveColor: Colors.black12,
@@ -72,7 +72,7 @@ class _PlayingNowState extends State<PlayingNow> {
     );
   }
 
-  Slider volumeBar() {
+  Slider _renderVolumeBar() {
     return Slider(
       value: _volume,
       inactiveColor: Colors.black12,
